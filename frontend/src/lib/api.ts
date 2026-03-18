@@ -16,6 +16,13 @@ export type Service = {
   price: number;
 };
 
+export type ServiceMini = {
+  id: number;
+  name: string;
+  duration_minutes: number;
+  price: number;
+};
+
 export type BookingType = "scheduled" | "walk_in";
 
 export type BookingCreate = {
@@ -98,5 +105,37 @@ export async function createBooking(input: BookingCreate) {
     body: JSON.stringify(input),
     headers: { Authorization: `Bearer ${token}` }
   });
+}
+
+export type ProfessionalSearchResult = {
+  professional_id: number;
+  professional_name: string;
+  title?: string | null;
+  bio?: string | null;
+  salon_id: number;
+  salon_name: string;
+  city: string;
+  services: ServiceMini[];
+};
+
+export type ProfessionalSearchResponse = {
+  location_used?: string | null;
+  results: ProfessionalSearchResult[];
+};
+
+export async function searchProfessionals(input: {
+  service: string;
+  location?: string | null;
+  lat?: number | null;
+  lng?: number | null;
+}): Promise<ProfessionalSearchResponse> {
+  const q = new URLSearchParams();
+  q.set("service", input.service);
+  if (input.location) q.set("location", input.location);
+  if (input.lat != null && input.lng != null) {
+    q.set("lat", String(input.lat));
+    q.set("lng", String(input.lng));
+  }
+  return await http<ProfessionalSearchResponse>(`/search/professionals?${q.toString()}`);
 }
 

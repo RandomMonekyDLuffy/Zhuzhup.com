@@ -1,15 +1,19 @@
 import { Link } from "react-router-dom";
+import NearbySearch from "../components/NearbySearch";
 
 export default function LandingPage() {
   return (
     <div className="stackLg">
       <section className="hero">
         <div className="stack">
-          <h1>Find and book salons in minutes.</h1>
+          <h1>Find and book salons near you.</h1>
           <p className="muted">
-            Browse nearby salons, compare services, and create scheduled or walk‑in bookings.
+            Search services and get professionals in your area. Schedule ahead or walk in.
           </p>
-          <div className="row">
+
+          <NearbySearch />
+
+          <div className="row" style={{ marginTop: 6 }}>
             <Link className="btn" to="/salons">
               Browse salons
             </Link>
@@ -30,8 +34,8 @@ export default function LandingPage() {
           <p className="muted">Book a time slot, or create a walk‑in request.</p>
         </div>
         <div className="card">
-          <h3>Modular backend</h3>
-          <p className="muted">FastAPI routers, schemas, and services for easy scaling.</p>
+          <h3>Nearby professionals</h3>
+          <p className="muted">Auto-detect your location to show services nearby.</p>
         </div>
       </section>
     </div>

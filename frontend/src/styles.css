@@ -248,3 +248,93 @@ textarea {
   border-radius: 12px;
 }
 
+.circleSearchArea {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.circleSearch {
+  width: 340px;
+  height: 340px;
+  border-radius: 9999px;
+  border: 1px solid rgba(124, 92, 255, 0.5);
+  background: radial-gradient(circle at 30% 30%, rgba(124, 92, 255, 0.22), rgba(255, 255, 255, 0.03));
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.circleSearchTitle {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.circleField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.circleField > span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.circleActions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.circleError {
+  width: 340px;
+}
+
+.searchResults {
+  width: min(100%, 920px);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.resultCard {
+  padding: 14px;
+}
+
+.searchServices {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.servicePill {
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 820px) {
+  .circleSearch {
+    width: 300px;
+    height: 360px;
+  }
+  .circleError {
+    width: 300px;
+  }
+  .searchResults {
+    grid-template-columns: 1fr;
+  }
+}
+
