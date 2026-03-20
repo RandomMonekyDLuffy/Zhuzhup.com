@@ -9,7 +9,7 @@ export function TopNav() {
     <header className="topNav">
       <div className="container topNavInner">
         <Link className="brand" to="/">
-          Salon Aggregator
+          ZhuzhUP
         </Link>
         <nav className="navLinks">
           <NavLink to="/salons">Salons</NavLink>
